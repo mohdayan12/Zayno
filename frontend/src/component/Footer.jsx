@@ -10,7 +10,7 @@ const Footer = () => {
                 <Link
                  to='/'
                  onClick={()=>window.scrollTo({top:0,behavior:"smooth"})}
-                ><img src={assets.logo} alt="logo "className='h-10 w-20 '/></Link>
+                ><img src={assets.logo} alt="logo "className='h-8 w-15 '/></Link>
                 <p className='w-full md:w-2/4 text-black font-normal'>
                  Style for everyone — men, women, and kids. Fashion that fits every generation.
                 </p>

@@ -9,19 +9,10 @@ const LatestCollection = () => {
   
 
  const [latestProducts,setLatestProducts]=useState([]);
-//  const discountPrice=({item})=>{
-//       let totalprice=item.price;
-//       let discount=item.discount;
-//       console.log(totalprice);
-//       console.log(discount);
-//       let disPrice=totalprice*(discount/100);
-//       let finalPrice=totalprice-disPrice;
-//       return finalPrice;
-  
-//  }
+
 
    useEffect(()=>{
-  setLatestProducts(products.slice(0,10));
+  setLatestProducts (products.slice(0,10));
  },[products]) 
   
 

@@ -57,11 +57,11 @@ const Collection = () => {
       let fpCopy=filterProduct.slice();
        switch(sortType){
         case 'low-high':
-        setFilterProduct(fpCopy.sort((a,b)=>(a.price - b.price)));
+        setFilterProduct(fpCopy.sort((a,b)=>(discountPrice(a.price,a.discount) - discountPrice(b.price,b.discount))));
          break;
 
          case 'high-low' :
-         setFilterProduct(fpCopy.sort((a,b)=>(b.price - a.price)));
+         setFilterProduct(fpCopy.sort((a,b)=>(discountPrice(b.price,b.discount) - discountPrice(a.price,a.discount))));
          break;
          default:
          applyFilter();
