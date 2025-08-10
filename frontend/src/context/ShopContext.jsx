@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+ import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from 'axios';
@@ -157,19 +157,30 @@ const ShopContextProvider=(props)=>{
      toast.error(error.message)
       
     }
-    
+    useEffect(()=>{
+      const storedToken=localStorage.getItem("token")
+      if(storedToken){
+        setToken(storedToken)
+      }
+    },[])
     
     }
+    useEffect(()=>{
+      if(token){
+        localStorage.setItem('token',token)
+      }
+      else{
+        localStorage.removeItem('token')
+      }
+    },[token])
    useEffect(()=>{
     getProductData()
-   },[])
-
-  useEffect(() => {
-  const storedToken = localStorage.getItem("token");
-  if (storedToken && token) {
-    getUserCart(token);  // Call whenever token changes
-  }
-}, [token]);
+    if(token){
+      getUserCart(token)
+    }
+   },[token])
+  
+  
    
     // getUserCart(localStorage.getItem('token'));
   // const [showSearch,setShowSearch]=useState(true);   
